@@ -6,14 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ubicacion extends Model
 {
-    protected $table = 'rubro';
+    protected $table = 'ubicacion';
 
     protected $primaryKey = 'id';
 
-    public $timestamps = 'false';
+    public $timestamps = false;
 
     protected $fillable = [
-        'nombre'
+        'nombre',
+        'direccion',
+        'telefono',
+        'longitud',
+        'latitud',
+        'departamento',
     ];
 
     public function empresa(){

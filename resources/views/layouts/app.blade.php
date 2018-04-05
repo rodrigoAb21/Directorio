@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/fontawesome/fontawesome-all.min.css')}}">
 </head>
-<body>
+<body id="body">
 <header>
 <nav class="navbar navbar-light bg-light justify-content-between" >
  <a href="index.html" class="navbar-brand">DIRECTORIO</a>

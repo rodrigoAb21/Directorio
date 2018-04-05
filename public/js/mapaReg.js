@@ -23,7 +23,6 @@ function placeMarker(location) {
             map: map
         });
     }
-
     document.getElementById("long1").value = marcador.getPosition().lng();
     document.getElementById("lati1").value = marcador.getPosition().lat();
 }
