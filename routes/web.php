@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/registrarEmpresa', 'EmpresaController@vistaCrear');
+Route::post('/registrarEmpresa', 'EmpresaController@registrar');
+Route::get('/empresa/{id}', 'EmpresaController@verEmpresa');
