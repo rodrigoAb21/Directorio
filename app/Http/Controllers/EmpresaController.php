@@ -68,7 +68,9 @@ class EmpresaController extends Controller
 
     public function verEmpresa($id){
         $empresa = Empresa::findOrFail($id);
-        $ubicaciones = DB::table('ubicacion') -> where('empresa_id','=',$id)->get();
+        $ubicaciones = DB::table('ubicacion') -> where('empresa_id','=',$id) -> get();
         return view('verEmpresa',['empresa' => $empresa, 'ubicaciones' => $ubicaciones]);
     }
+
+
 }

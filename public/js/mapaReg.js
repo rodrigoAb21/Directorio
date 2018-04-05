@@ -9,12 +9,12 @@ function initMap() {
     });
 
     map.addListener('click', function(event) {
-        placeMarker(event.latLng);
+        agregarMarcador(event.latLng);
     });
 }
 
 
-function placeMarker(location) {
+function agregarMarcador(location) {
     if ( marcador ) {
         marcador.setPosition(location);
     } else {

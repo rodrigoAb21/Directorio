@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('contenido')
 
-<div class="container border mt-2 mb-3">
+<div class="container border mt-2 mb-4">
     <div class="mt-1">
         <small class="text-right mt-2">
             <h4>
@@ -57,21 +57,6 @@
         </div>
     </div>
 </div>
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center mt-2">
-        <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Anterior</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Siguiente</a>
-        </li>
-    </ul>
-</nav>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,6 +68,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
                 <p>¿Desea eliminar la empresa: Hipermaxi?</p>
             </div>
@@ -95,9 +81,9 @@
 </div>
 
 <script>
-    var arreglo = [];
+    var ubicaciones = [];
     @foreach($ubicaciones as $ubi)
-    arreglo.push({nombre:'{{$ubi->nombre}}', lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
+    ubicaciones.push({nombre:'{{$ubi->nombre}}', lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
     @endforeach
 
     function initMap() {
@@ -106,7 +92,7 @@
             center:{lat: -17.7851016, lng: -63.1803851},
         });
 
-        arreglo.forEach(function (ele) {
+        ubicaciones.forEach(function (ele) {
             var marker = new google.maps.Marker({
                 position: {lat: ele['lati'], lng: ele['long']},
                 map: map,

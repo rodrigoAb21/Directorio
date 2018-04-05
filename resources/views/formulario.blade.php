@@ -44,7 +44,7 @@
             </div>
             <hr>
 
-            <h3>Ubicaciones <button class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg" type="button"><i class="fa fa-plus"></i></button></h3>
+            <h3>Ubicaciones <button id="vModal" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg" type="button"><i class="fa fa-plus"></i></button></h3>
 
             <div class="table-responsive">
                 <table class="table table-hover table-bordered" id="tabla">
@@ -119,7 +119,7 @@
                     </div>
                     <div class="modal-footer">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            <button class="btn btn-success" type="button" onclick="agregar()" data-dismiss="modal"><i class="fa fa-plus"></i> Agregar </button>
+                            <button id="addUbi" class="btn btn-success" type="button" onclick="agregar()" data-dismiss="modal"><i class="fa fa-plus"></i> Agregar </button>
                         </div>
                     </div>
                 </div>
