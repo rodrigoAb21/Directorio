@@ -29,5 +29,5 @@ class Empresa extends Model
     public function ubicaciones(){
         return $this -> hasMany('App\Modelos\Ubicacion');
     }
-
+    
 }
