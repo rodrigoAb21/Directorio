@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TOPICOS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-light bg-light justify-content-between" >
+        <a href="index.html" class="navbar-brand">DIRECTORIO</a>
+        <form class="form-inline">
+            <a href="verRubros.html" class="btn btn-outline-danger mr-1">Rubros</a>
+            <a href="registrarEmpresa.html" class="btn btn-outline-warning">Registrar empresa <i class="fa fa-plus"></i></a>
+            <div class="input-group">
+                <input type="text" class="form-control ml-1" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <a href="listarBusqueda.html" class="btn btn-outline-primary" ><i class="fa fa-search"></i></a>
+                    <select name="filtro" class="form-control ml-1" id="filtro">
+                        <option value="">Lugar</option>
+                        <option value="">Santa Cruz</option>
+                        <option value="">Cochabamba</option>
+                        <option value="">La Paz</option>
+                        <option value="">Oruro</option>
+                        <option value="">Potosi</option>
+                        <option value="">Sucre</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </nav>
+</header>
+
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="card mt-4">
+            <div class="card-header">
+                <h1 class="text-center">HIPERMAXI SUR</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <p><b>Empresa: </b><a href="verEmpresa.html">Hipermaxi</a></p>
+                                <p><b>Rubro: </b><a href="">Supermercado</a></p>
+                                <p><b><i class="fa fa-globe"></i></b> <a href="https://www.hipermaxi.com">www.hipermaxi.com</a></p>
+                                <p><b><i class="fa fa-envelope"></i></b> hipermaxi@cotas.com</p>
+                            </div>
+                            <div class="col-6">
+                                <img src="img/index.png" height="150" width="150">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p><b>Departamento: </b>Santa Cruz</p>
+                                <p><b>Direccion: </b>Av. Santos Dumont. 3er anillo</p>
+                                <p><b>Telefono: </b>3564587</p>
+                                <p class="text-justify"><b>Descripcion: </b>Nuestra visión es ser el supermercado líder en comercialización de alimentos y productos de consumo masivo en Bolivia, con una oferta de productos de primera calidad, al mejor precio y con una atención superior al cliente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div id="map" style="width: 100%; height: 500px; background: #b4c1cd"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center mt-2">
+                        <li class="page-item">
+                            <a class="page-link" href="#" ><i class="fa fa-arrow-left"></i></a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" ><i class="fa fa-arrow-right"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var marker;          //variable del marcador
+    var coords = {};    //coordenadas obtenidas con la geolocalización
+
+    //Funcion principal
+    initMap = function ()
+    {
+        coords =  {
+            lat: -17.7851016,
+            lng: -63.1803851
+        }
+
+        setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
+
+    }
+
+
+    function setMapa (coords)
+    {
+        //Se crea una nueva instancia del objeto mapa
+        var map = new google.maps.Map(document.getElementById('map'),
+            {
+                zoom: 13,
+                center:new google.maps.LatLng(coords.lat,coords.lng),
+
+            });
+
+        //Creamos el marcador en el mapa con sus propiedades
+        //para nuestro obetivo tenemos que poner el atributo draggable en true
+        //position pondremos las mismas coordenas que obtuvimos en la geolocalización
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            position: new google.maps.LatLng(coords.lat,coords.lng),
+        });
+        //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica
+        //cuando el usuario a soltado el marcador
+        marker.addListener('click', toggleBounce);
+
+        marker.addListener( 'dragend', function (event)
+        {
+            //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
+            document.getElementById("long").value = this.getPosition().lng();
+            document.getElementById("lati").value = this.getPosition().lat();
+        });
+    }
+
+    //callback al hacer clic en el marcador lo que hace es quitar y poner la animacion BOUNCE
+    function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    }
+
+    // Carga de la libreria de google maps
+
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
+</script>
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

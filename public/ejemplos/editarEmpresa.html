@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TOPICOS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-light bg-light justify-content-between" >
+        <a href="index.html" class="navbar-brand">DIRECTORIO</a>
+        <form class="form-inline">
+            <a href="verRubros.html" class="btn btn-outline-danger mr-1">Rubros</a>
+            <a href="registrarEmpresa.html" class="btn btn-outline-warning">Registrar empresa <i class="fa fa-plus"></i></a>
+            <div class="input-group">
+                <input type="text" class="form-control ml-1" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <a href="listarBusqueda.html" class="btn btn-outline-primary" ><i class="fa fa-search"></i></a>
+                    <select name="filtro" class="form-control ml-1" id="filtro">
+                        <option value="">Lugar</option>
+                        <option value="">Santa Cruz</option>
+                        <option value="">Cochabamba</option>
+                        <option value="">La Paz</option>
+                        <option value="">Oruro</option>
+                        <option value="">Potosi</option>
+                        <option value="">Sucre</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </nav>
+</header>
+<div class="container col-lg-8 col col-md-10 col-sm-11">
+    <h2 align="center">EDITAR EMPRESA: HIPERMAXI</h2>
+    <form action="">
+        <h3>Datos de la empresa</h3>
+        <div class="row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="nombre">Nombre</label>
+                <input class="form-control" type="text" name="nombre" id="nombre" value="Hipermaxi">
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="logo">Logo</label>
+                <input type="file" class="form-control-file" name="logo" id="logo">
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="rubro">Rubro</label>
+                <select class="form-control" name="rubro" id="rubro">
+                    <option selected>Supermercado</option>
+                    <option>Taller</option>
+                    <option>Farmacia</option>
+                    <option>Libreria</option>
+                    <option>Restaurant</option>
+                </select>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="clave">Palabras clave</label>
+                <input class="form-control" type="text" name="clave" id="clave" value="Supermercado, Mercado, Productos">
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="email">Email</label>
+                <input class="form-control" type="email" name="email" id="email" value="hipermaxi@cotas.com">
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                <label for="web">Sitio Web</label>
+                <input class="form-control" type="text" name="web" id="web"  value="www.hipermaxi.com">
+            </div>
+            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                <label for="descripcion">Descripcion</label>
+                <textarea class="form-control" type="text" name="descripcion" id="descripcion">Nuestra visión es ser el supermercado líder en comercialización de alimentos y productos de consumo masivo en Bolivia, con una oferta de productos de primera calidad, al mejor precio y con una atención superior al cliente.</textarea>
+            </div>
+        </div>
+        <hr>
+        <h3>Ubicaciones <button class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg" type="button"><i class="fa fa-plus"></i></button></h3>
+
+
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Opciones</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">DPTO</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Direccion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>
+                        <button class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal2-lg" type="button"><i class="fa fa-pencil-alt"></i></button>
+                        <a href="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></a>
+                    </th>
+                    <td>Hipermaxi Sur</td>
+                    <td>SCZ</td>
+                    <td>3365254</td>
+                    <td>Av. Santos Dumont. 3er anillo</td>
+                </tr>
+                <tr>
+                    <th>
+                        <button class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal2-lg" type="button"><i class="fa fa-pencil-alt"></i></button>
+                        <a href="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></a>
+                    </th>
+                    <td>Hipermaxi Las Palmas</td>
+                    <td>SCZ</td>
+                    <td>3365254</td>
+                    <td>Doble via la Guardia 4to anillo</td>
+                </tr>
+                <tr>
+                    <th>
+                        <button class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal2-lg" type="button"><i class="fa fa-pencil-alt"></i></button>
+                        <a href="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></a>
+                    </th>
+                    <td>Hipermaxi Roca y Coronado</td>
+                    <td>SCZ</td>
+                    <td>3363354</td>
+                    <td>Av.Roca y Coronado entre 3er y 4to anillo</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-danger">Atras</button>
+            <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Nueva Ubicacion</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label for="nombres">Nombre</label>
+                            <input class="form-control" type="text" name="nombres" id="nombres">
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label for="telefono">Telefono</label>
+                            <input class="form-control" type="tel" name="telefono" id="telefono">
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label for="direccion">Dirección</label>
+                            <input class="form-control" type="text" name="direccion" id="direccion">
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label for="departamento">Departamento</label>
+                            <select class="form-control" name="departamento" id="departamento">
+                                <option>Santa Cruz</option>
+                                <option>La Paz</option>
+                                <option>Cochabamba</option>
+                                <option>Oruro</option>
+                                <option>Potosi</option>
+                                <option>Sucre</option>
+                                <option>Tarija</option>
+                                <option>Pando</option>
+                                <option>Beni</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div id="map" style="width: 100%; height: 400px; background: #b4c1cd; margin-bottom: 1rem"></div>
+                            <input type="hidden" id="long" />
+                            <input type="hidden" id="lati" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <button class="btn btn-success" type="button"> Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Ubicación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Desea eliminar la ubicación: Hipermaxi Sur?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bd-example-modal2-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Editar Ubicacion</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label>Nombre</label>
+                            <input class="form-control" type="text" name="nombre" value="Hipermaxi Sur">
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label>Telefono</label>
+                            <input class="form-control" type="tel" name="telefono" value="3365254">
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label>Dirección</label>
+                            <input class="form-control" type="text" name="direccion" value="Av. Santos Dumont. 3er anillo">
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label >Departamento</label>
+                            <select class="form-control" name="departamento" >
+                                <option>Santa Cruz</option>
+                                <option>La Paz</option>
+                                <option>Cochabamba</option>
+                                <option>Oruro</option>
+                                <option>Potosi</option>
+                                <option>Sucre</option>
+                                <option>Tarija</option>
+                                <option>Pando</option>
+                                <option>Beni</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div id="map2" style="width: 100%; height: 400px; background: #b4c1cd; margin-bottom: 1rem"></div>
+                            <input type="hidden" id="long2" />
+                            <input type="hidden" id="lati2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <button class="btn btn-success" type="button"> Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var marker;          //variable del marcador
+    var coords = {};    //coordenadas obtenidas con la geolocalización
+
+    //Funcion principal
+    initMap = function ()
+    {
+        coords =  {
+            lat: -17.7851016,
+            lng: -63.1803851
+        }
+
+        setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
+        setMapa2(coords);  //pasamos las coordenadas al metodo para crear el mapa
+
+    }
+
+
+    function setMapa (coords)
+    {
+        //Se crea una nueva instancia del objeto mapa
+        var map = new google.maps.Map(document.getElementById('map'),
+            {
+                zoom: 13,
+                center:new google.maps.LatLng(coords.lat,coords.lng),
+
+            });
+
+        //Creamos el marcador en el mapa con sus propiedades
+        //para nuestro obetivo tenemos que poner el atributo draggable en true
+        //position pondremos las mismas coordenas que obtuvimos en la geolocalización
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            position: new google.maps.LatLng(coords.lat,coords.lng),
+        });
+        //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica
+        //cuando el usuario a soltado el marcador
+        marker.addListener('click', toggleBounce);
+
+        marker.addListener( 'dragend', function (event)
+        {
+            //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
+            document.getElementById("long").value = this.getPosition().lng();
+            document.getElementById("lati").value = this.getPosition().lat();
+        });
+    }
+
+    function setMapa2 (coords)
+    {
+        //Se crea una nueva instancia del objeto mapa
+        var map = new google.maps.Map(document.getElementById('map2'),
+            {
+                zoom: 13,
+                center:new google.maps.LatLng(coords.lat,coords.lng),
+
+            });
+
+        //Creamos el marcador en el mapa con sus propiedades
+        //para nuestro obetivo tenemos que poner el atributo draggable en true
+        //position pondremos las mismas coordenas que obtuvimos en la geolocalización
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            position: new google.maps.LatLng(coords.lat,coords.lng),
+        });
+        //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica
+        //cuando el usuario a soltado el marcador
+        marker.addListener('click', toggleBounce);
+
+        marker.addListener( 'dragend', function (event)
+        {
+            //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
+            document.getElementById("long2").value = this.getPosition().lng();
+            document.getElementById("lati2").value = this.getPosition().lat();
+        });
+    }
+
+
+    //callback al hacer clic en el marcador lo que hace es quitar y poner la animacion BOUNCE
+    function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    }
+
+    // Carga de la libreria de google maps
+
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
+</script>
+
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
