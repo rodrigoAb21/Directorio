@@ -10,7 +10,7 @@
 <body id="body">
 <header>
 <nav class="navbar navbar-light bg-light justify-content-between" >
- <a href="index.html" class="navbar-brand">DIRECTORIO</a>
+ <a href="{{url('/')}}" class="navbar-brand">DIRECTORIO</a>
     <form class="form-inline">
         <a href="verRubros.html" class="btn btn-outline-danger mr-1">Rubros</a>
         <a href="{{url('/registrarEmpresa')}}" class="btn btn-outline-warning">Registrar empresa <i class="fa fa-plus"></i></a>

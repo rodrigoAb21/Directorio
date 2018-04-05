@@ -13,7 +13,7 @@ class EmpresaController extends Controller
 {
     public function vistaCrear(){
         $rubros = Rubro::all();
-        return view('formulario', ['rubros' => $rubros]);
+        return view('Empresa/formulario', ['rubros' => $rubros]);
     }
 
     public function registrar(Request $request){
@@ -69,7 +69,7 @@ class EmpresaController extends Controller
     public function verEmpresa($id){
         $empresa = Empresa::findOrFail($id);
         $ubicaciones = DB::table('ubicacion') -> where('empresa_id','=',$id) -> get();
-        return view('verEmpresa',['empresa' => $empresa, 'ubicaciones' => $ubicaciones]);
+        return view('Empresa/verEmpresa',['empresa' => $empresa, 'ubicaciones' => $ubicaciones]);
     }
 
 
