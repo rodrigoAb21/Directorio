@@ -72,5 +72,14 @@ class EmpresaController extends Controller
         return view('Empresa/verEmpresa',['empresa' => $empresa, 'ubicaciones' => $ubicaciones]);
     }
 
+    public function eliminar($id){
+
+        $empresa = Empresa::findOrFail($id);
+        $empresa -> ubicaciones() -> delete();
+        $empresa -> delete();
+
+        return redirect('/');
+    }
+
 
 }

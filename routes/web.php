@@ -15,6 +15,29 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+/* ******************* Rutas para las empresas ****************** */
 Route::get('registrarEmpresa', 'EmpresaController@vistaCrear');
 Route::post('registrarEmpresa', 'EmpresaController@registrar');
 Route::get('empresa/{id}', 'EmpresaController@verEmpresa');
+Route::delete('empresa/{id}', 'EmpresaController@eliminar');
+
+
+
+
+
+
+/* ******************* Rutas para los rubros ****************** */
+
+
+
+
+
+
+
+
+
+/* ******************* Rutas para las busquedas ****************** */
+
+
+
