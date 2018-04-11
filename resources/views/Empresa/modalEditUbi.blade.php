@@ -36,8 +36,8 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div id="map2" style="width: 100%; height: 400px; background: #b4c1cd; margin-bottom: 1rem"></div>
-                            <input type="" id="longitud3" name="longitud3"/>
-                            <input type="" id="latitud3" name="latitud3"/>
+                            <input type="hidden" id="longitud3" name="longitud3"/>
+                            <input type="hidden" id="latitud3" name="latitud3"/>
                         </div>
                     </div>
                 </div>
