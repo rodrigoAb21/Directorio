@@ -85,29 +85,42 @@
 
     @include('Empresa.modalEditUbi')
 
-    <script>
-        var lat2, lng2;
-        function mostrarModal (id, nombre, telf, dir, dpto, lat, lng) {
-            $('#formEdit').attr("action", "http://127.0.0.1:8000/ubicacion/editar/" + id);
-            $('#modalTitulo').html("Editar ubicacion: " + nombre);
-            $('#nombre2').val(nombre);
-            $('#telefono2').val(telf);
-            $('#direccion2').val(dir);
-            $('#departamento2').val(dpto);
-            $('#latitud2').val(parseFloat(lat));
-            $('#longitud2').val(parseFloat(lng));
-
-            lat2 = parseFloat(lat);
-            lng2 = parseFloat(lng);
-
-            $('#modalEdit').modal('show');
-        }
-    </script>
-
     <script src="{{asset('js/mapaEdit.js')}}"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
     </script>
+
+    <script>
+    var lat2, lng2;
+    function mostrarModal (id, nombre, telf, dir, dpto, lat3, lng3) {
+    $('#formEdit').attr("action", "http://127.0.0.1:8000/ubicacion/editar/" + id);
+    $('#modalTitulo').html("Editar ubicacion: " + nombre);
+    $('#nombre2').val(nombre);
+    $('#telefono2').val(telf);
+    $('#direccion2').val(dir);
+    $('#departamento2').val(dpto);
+    $('#latitud3').val(lat3);
+    $('#longitud3').val(lng3);
+
+    agregarMarcador3(parseFloat(lat3), parseFloat(lng3));
+
+    $('#modalEdit').modal('show');
+
+    }
+
+    function agregarMarcador3(l1, l2) {
+        if ( marcador2 ) {
+            marcador2.setPosition({lat: l1, lng: l2});
+        } else {
+            marcador2 = new google.maps.Marker({
+                position: {lat: l1, lng: l2},
+                map: map2
+            });
+        }
+    }
+
+    </script>
+
 
 
 

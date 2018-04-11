@@ -26,8 +26,8 @@ class UbicacionController extends Controller
         $ubicacion -> telefono = $request -> telefono2;
         $ubicacion -> direccion = $request -> direccion2;
         $ubicacion -> departamento = $request -> departamento2;
-        $ubicacion -> latitud = $request -> latitud2;
-        $ubicacion -> longitud = $request -> longitud2;
+        $ubicacion -> latitud = $request -> latitud3;
+        $ubicacion -> longitud = $request -> longitud3;
         $ubicacion -> update();
 
         return redirect('empresa/editar/'.$ubicacion -> empresa_id);

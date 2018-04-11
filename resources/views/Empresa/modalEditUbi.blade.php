@@ -14,7 +14,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="nombres">Nombre</label>
-                            <input class="form-control" type="text" name="nombre2" id="nombre2">
+                            <input class="form-control" type="text" name="nombre2" id="nombre2" value="">
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="telefono">Telefono</label>
@@ -36,8 +36,8 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div id="map2" style="width: 100%; height: 400px; background: #b4c1cd; margin-bottom: 1rem"></div>
-                            <input type="" id="longitud2" name="longitud2"/>
-                            <input type="" id="latitud2" name="latitud2"/>
+                            <input type="" id="longitud3" name="longitud3"/>
+                            <input type="" id="latitud3" name="latitud3"/>
                         </div>
                     </div>
                 </div>
