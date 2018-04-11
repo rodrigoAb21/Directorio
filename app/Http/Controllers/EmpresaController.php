@@ -72,6 +72,13 @@ class EmpresaController extends Controller
         return view('Empresa/verEmpresa',['empresa' => $empresa, 'ubicaciones' => $ubicaciones]);
     }
 
+    public function vistaEditar($id){
+        $empresa= Empresa::findOrFail($id);
+        $ubicaciones = DB::table('ubicacion') -> where('empresa_id','=',$id) -> get();
+        $rubros= Rubro::all();
+        return view('Empresa/formulario2',['rubros'=>$rubros,'empresa'=> $empresa,'ubicaciones'=>$ubicaciones ]);
+    }
+
     public function eliminar($id){
 
         $empresa = Empresa::findOrFail($id);
@@ -81,5 +88,23 @@ class EmpresaController extends Controller
         return redirect('/');
     }
 
+    public function editar($id, Request $request){
+        $empresa = Empresa::findOrFail($id);
+        $empresa -> nombre = $request -> nombre;
+        $empresa -> web = $request -> web;
+        $empresa -> clave = $request -> clave;
+        $empresa -> email = $request -> email;
+        $empresa -> descripcion = $request -> descripcion;
+
+        if (Input::hasFile('logo')) {
+            $file = Input::file('logo');
+            $file -> move(public_path().'/img/', $file->getClientOriginalName());
+            $empresa -> logo = $file->getClientOriginalName();
+        }
+
+        $empresa -> rubro_id = $request -> rubro_id;
+        $empresa -> update();
+        return redirect('empresa/'.$id);
+    }
 
 }

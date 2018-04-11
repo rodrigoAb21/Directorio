@@ -5,7 +5,7 @@
     <div class="mt-1">
         <small class="text-right mt-2">
             <h4>
-                <a href="editarEmpresa.html" class="badge badge-success"><i class="fa fa-pencil-alt"></i></a>
+                <a href="{{url('empresa/editar/'.$empresa->id)}}" class="badge badge-success"><i class="fa fa-pencil-alt"></i></a>
                 <a href="" class="badge badge-danger" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash"></i></a>
             </h4>
         </small>
