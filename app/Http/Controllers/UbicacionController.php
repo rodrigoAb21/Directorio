@@ -22,6 +22,5 @@ class UbicacionController extends Controller
 
     public function editar($id, Request $request){
 
-
     }
 }
