@@ -2,7 +2,8 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form id="formEdit" method="POST" action="" autocomplete="off">
-                {{ csrf_field() }}{{ method_field('PUT') }}
+                <input type="hidden" name="_method" value="" id="metodo">
+                {{ csrf_field() }}
             <div class="modal-header">
                 <h4 id="modalTitulo">Editar Ubicacion</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -14,15 +15,15 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="nombres">Nombre</label>
-                            <input class="form-control" type="text" name="nombre2" id="nombre2" value="">
+                            <input class="form-control" type="text" name="nombreU" id="nombreU" value="">
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="telefono">Telefono</label>
-                            <input class="form-control" type="tel" name="telefono2" id="telefono2">
+                            <input class="form-control" type="tel" name="telefono" id="telefono">
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="departamento">Departamento</label>
-                            <select class="form-control" name="departamento2" id="departamento2">
+                            <select class="form-control" name="departamento" id="departamento">
                                 @foreach($dptos as $dpto)
                                     <option value="{{$dpto}}">{{$dpto}}</option>
                                 @endforeach
@@ -30,14 +31,14 @@
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="direccion">Dirección</label>
-                            <textarea name="direccion2" id="direccion2" rows="2" class="form-control"></textarea>
+                            <textarea name="direccion" id="direccion" rows="2" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div id="map2" style="width: 100%; height: 400px; background: #b4c1cd; margin-bottom: 1rem"></div>
-                            <input type="hidden" id="longitud3" name="longitud3"/>
-                            <input type="hidden" id="latitud3" name="latitud3"/>
+                            <div id="map" style="width: 100%; height: 400px; background: #b4c1cd; margin-bottom: 1rem"></div>
+                            <input type="hidden" id="longitud" name="longitud"/>
+                            <input type="hidden" id="latitud" name="latitud"/>
                         </div>
                     </div>
                 </div>

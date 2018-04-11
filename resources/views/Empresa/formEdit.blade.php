@@ -11,11 +11,11 @@
             <div class="row">
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="nombre">Nombre</label>
-                    <input class="form-control" type="text" name="nombre" id="nombre" value="{{$empresa->nombre}}">
+                    <input class="form-control" type="text" name="nombreE" value="{{$empresa->nombre}}">
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="logo">Logo</label>
-                    <input type="file" class="form-control-file" name="logo" id="logo">
+                    <input type="file" class="form-control-file" name="logo">
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="rubro">Rubro</label>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <hr>
-            <h3>Ubicaciones <button id="vModal" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg" type="button"><i class="fa fa-plus"></i></button></h3>
+            <h3>Ubicaciones <button class="btn btn-success" type="button" onclick="modalReg('{{$empresa -> id}}')"><i class="fa fa-plus"></i></button></h3>
 
             <div class="table-responsive">
                 <table class="table table-hover table-bordered" id="tabla">
@@ -64,7 +64,7 @@
                     @foreach($ubicaciones as $ubicacion )
                     <tr>
                         <td>
-                            <button class="btn btn-warning" type="button" onclick="mostrarModal('{{$ubicacion -> id}}', '{{$ubicacion -> nombre}}', '{{$ubicacion -> telefono}}', '{{$ubicacion -> direccion}}', '{{$ubicacion -> departamento}}', '{{$ubicacion -> latitud}}', '{{$ubicacion -> longitud}}')"><i class="fa fa-pencil-alt"></i></button>
+                            <button class="btn btn-warning" type="button" onclick="modalEdit('{{$ubicacion -> id}}', '{{$ubicacion -> nombre}}', '{{$ubicacion -> telefono}}', '{{$ubicacion -> direccion}}', '{{$ubicacion -> departamento}}', '{{$ubicacion -> latitud}}', '{{$ubicacion -> longitud}}')"><i class="fa fa-pencil-alt"></i></button>
                             <a href=""><button class="btn btn-danger"><i class="fa fa-trash-alt"></i></button></a>
                         </td>
                         <td>{{$ubicacion->nombre}}</td>
@@ -80,10 +80,9 @@
             <button id="btSave" type="submit" class="btn btn-primary">Guardar</button>
         </div>
         {!!Form::close()!!}
-        @include('Empresa.modalRegUbi')
     </div>
 
-    @include('Empresa.modalEditUbi')
+    @include('Empresa.Ubicacion.modalUbi')
 
     <script src="{{asset('js/edit.js')}}"></script>
     <script async defer

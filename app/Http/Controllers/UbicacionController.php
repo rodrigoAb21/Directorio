@@ -9,7 +9,7 @@ class UbicacionController extends Controller
 {
     public function registrar($id,Request $request){
         $ubicacion = new Ubicacion();
-        $ubicacion -> nombre = $request -> nombres;
+        $ubicacion -> nombre = $request -> nombreU;
         $ubicacion -> telefono = $request -> telefono;
         $ubicacion -> direccion = $request -> direccion;
         $ubicacion -> departamento = $request -> departamento;
@@ -22,12 +22,12 @@ class UbicacionController extends Controller
 
     public function editar($id, Request $request){
         $ubicacion = Ubicacion::findOrFail($id);
-        $ubicacion -> nombre = $request -> nombre2;
-        $ubicacion -> telefono = $request -> telefono2;
-        $ubicacion -> direccion = $request -> direccion2;
-        $ubicacion -> departamento = $request -> departamento2;
-        $ubicacion -> latitud = $request -> latitud3;
-        $ubicacion -> longitud = $request -> longitud3;
+        $ubicacion -> nombre = $request -> nombreU;
+        $ubicacion -> telefono = $request -> telefono;
+        $ubicacion -> direccion = $request -> direccion;
+        $ubicacion -> departamento = $request -> departamento;
+        $ubicacion -> latitud = $request -> latitud;
+        $ubicacion -> longitud = $request -> longitud;
         $ubicacion -> update();
 
         return redirect('empresa/editar/'.$ubicacion -> empresa_id);

@@ -13,7 +13,7 @@ class EmpresaController extends Controller
 {
     public function vistaCrear(){
         $rubros = Rubro::all();
-        return view('Empresa/formulario', ['rubros' => $rubros]);
+        return view('Empresa/formReg', ['rubros' => $rubros]);
     }
 
     public function registrar(Request $request){
@@ -35,12 +35,12 @@ class EmpresaController extends Controller
             $empresa -> rubro_id = $request -> rubro_id;
             $empresa -> save();
 
-            $nombre = $request ->get('nombreT');
-            $direccion = $request -> get('direccionT');
-            $departamento = $request -> get('departamentoT');
-            $telefono = $request -> get('telefonoT');
-            $longitud = $request -> get('longitudT');
-            $latitud = $request -> get('latitudT');
+            $nombre = $request -> nombreT;
+            $direccion = $request -> direccionT;
+            $departamento = $request ->departamentoT;
+            $telefono = $request ->telefonoT;
+            $longitud = $request ->longitudT;
+            $latitud = $request ->latitudT;
             $cont = 0;
 
             while ($cont < count($nombre)) {
@@ -77,21 +77,12 @@ class EmpresaController extends Controller
         $ubicaciones = DB::table('ubicacion') -> where('empresa_id','=',$id) -> get();
         $rubros= Rubro::all();
         $dptos = ['La Paz', 'Cochabamba','Santa Cruz','Oruro','Potosi','Sucre','Tarija','Pando','Beni'];
-        return view('Empresa/formulario2',['rubros'=>$rubros,'empresa'=> $empresa,'ubicaciones'=>$ubicaciones, 'dptos' => $dptos]);
-    }
-
-    public function eliminar($id){
-
-        $empresa = Empresa::findOrFail($id);
-        $empresa -> ubicaciones() -> delete();
-        $empresa -> delete();
-
-        return redirect('/');
+        return view('Empresa/formEdit',['rubros'=>$rubros,'empresa'=> $empresa,'ubicaciones'=>$ubicaciones, 'dptos' => $dptos]);
     }
 
     public function editar($id, Request $request){
         $empresa = Empresa::findOrFail($id);
-        $empresa -> nombre = $request -> nombre;
+        $empresa -> nombre = $request -> nombreE;
         $empresa -> web = $request -> web;
         $empresa -> clave = $request -> clave;
         $empresa -> email = $request -> email;
@@ -106,6 +97,15 @@ class EmpresaController extends Controller
         $empresa -> rubro_id = $request -> rubro_id;
         $empresa -> update();
         return redirect('empresa/'.$id);
+    }
+
+    public function eliminar($id){
+
+        $empresa = Empresa::findOrFail($id);
+        $empresa -> ubicaciones() -> delete();
+        $empresa -> delete();
+
+        return redirect('/');
     }
 
 }
