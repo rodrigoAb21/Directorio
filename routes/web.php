@@ -26,6 +26,7 @@ Route::patch('empresa/editar/{id}','EmpresaController@editar');
 
 /* ******************* Rutas para ubicaciones ****************** */
 Route::post('empresa/{id}/registrarUbicacion','UbicacionController@registrar');
+Route::put('ubicacion/editar/{id}','UbicacionController@editar');
 
 
 

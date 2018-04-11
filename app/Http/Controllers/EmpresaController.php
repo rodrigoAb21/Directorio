@@ -76,7 +76,8 @@ class EmpresaController extends Controller
         $empresa= Empresa::findOrFail($id);
         $ubicaciones = DB::table('ubicacion') -> where('empresa_id','=',$id) -> get();
         $rubros= Rubro::all();
-        return view('Empresa/formulario2',['rubros'=>$rubros,'empresa'=> $empresa,'ubicaciones'=>$ubicaciones ]);
+        $dptos = ['La Paz', 'Cochabamba','Santa Cruz','Oruro','Potosi','Sucre','Tarija','Pando','Beni'];
+        return view('Empresa/formulario2',['rubros'=>$rubros,'empresa'=> $empresa,'ubicaciones'=>$ubicaciones, 'dptos' => $dptos]);
     }
 
     public function eliminar($id){
