@@ -3,6 +3,15 @@
     <div class="container col-lg-8 col col-md-10 col-sm-11">
         <h2 align="center">REGISTRAR EMPRESA</h2>
 
+        @if($errors -> any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors -> all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         {!!Form::open(array('url'=>'registrarEmpresa','method'=>'POST','autocomplete'=>'off', 'files' => 'true'))!!}
         {{Form::token()}}
@@ -11,7 +20,7 @@
             <div class="row">
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="nombre">Nombre</label>
-                    <input class="form-control" type="text" name="nombre" id="nombre">
+                    <input class="form-control" type="text" name="nombre" id="nombre" required>
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="logo">Logo</label>
@@ -27,11 +36,11 @@
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="clave">Palabras clave</label>
-                    <input class="form-control" type="text" name="clave" id="clave">
+                    <input class="form-control" type="text" name="clave" id="clave" required>
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="email">Email</label>
-                    <input class="form-control" type="email" name="email" id="email">
+                    <input class="form-control" type="email" name="email" id="email" required>
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="web">Sitio Web</label>
@@ -39,7 +48,7 @@
                 </div>
                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                     <label for="descripcion">Descripcion</label>
-                    <textarea class="form-control" type="text" name="descripcion" id="descripcion"></textarea>
+                    <textarea class="form-control" type="text" name="descripcion" id="descripcion" required></textarea>
                 </div>
             </div>
             <hr>

@@ -15,15 +15,15 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="nombres">Nombre</label>
-                            <input class="form-control" type="text" name="nombreU" id="nombreU" value="">
+                            <input class="form-control" type="text" name="nombreU" id="nombreU" required>
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="telefono">Telefono</label>
-                            <input class="form-control" type="tel" name="telefono" id="telefono">
+                            <input class="form-control" type="number" minlength="6" name="telefono" id="telefono" required>
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="departamento">Departamento</label>
-                            <select class="form-control" name="departamento" id="departamento">
+                            <select class="form-control" name="departamento" id="departamento" required>
                                 @foreach($dptos as $dpto)
                                     <option value="{{$dpto}}">{{$dpto}}</option>
                                 @endforeach
@@ -31,14 +31,14 @@
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="direccion">Dirección</label>
-                            <textarea name="direccion" id="direccion" rows="2" class="form-control"></textarea>
+                            <textarea name="direccion" id="direccion" rows="2" class="form-control" maxlength="255" required></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div id="map" style="width: 100%; height: 400px; background: #b4c1cd; margin-bottom: 1rem"></div>
-                            <input type="hidden" id="longitud" name="longitud"/>
-                            <input type="hidden" id="latitud" name="latitud"/>
+                            <input type="hidden" id="longitud" name="longitud">
+                            <input type="hidden" id="latitud" name="latitud">
                         </div>
                     </div>
                 </div>

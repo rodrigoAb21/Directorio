@@ -4,6 +4,17 @@
         <h2 align="center">EDITAR EMPRESA: {{$empresa -> nombre}}</h2>
 
 
+        @if($errors -> any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors -> all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
         {!!Form::open(array('url'=>'empresa/editar/'.$empresa->id,'method'=>'PATCH','autocomplete'=>'off', 'files' => 'true'))!!}
         {{Form::token()}}
 

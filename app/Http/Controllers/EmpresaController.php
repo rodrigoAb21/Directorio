@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidadorReg;
 use App\Modelos\Empresa;
 use App\Modelos\Rubro;
 use App\Modelos\Ubicacion;
@@ -16,7 +17,7 @@ class EmpresaController extends Controller
         return view('Empresa/formReg', ['rubros' => $rubros]);
     }
 
-    public function registrar(Request $request){
+    public function registrar(ValidadorReg $request){
         try {
             DB::beginTransaction();
             $empresa = new Empresa();

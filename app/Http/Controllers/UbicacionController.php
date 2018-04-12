@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidadorUbi;
 use App\Modelos\Ubicacion;
 use Illuminate\Http\Request;
 
 class UbicacionController extends Controller
 {
-    public function registrar($id,Request $request){
+    public function registrar($id,ValidadorUbi $request){
         $ubicacion = new Ubicacion();
         $ubicacion -> nombre = $request -> nombreU;
         $ubicacion -> telefono = $request -> telefono;
@@ -20,7 +21,7 @@ class UbicacionController extends Controller
         return redirect('empresa/editar/'.$id);
     }
 
-    public function editar($id, Request $request){
+    public function editar($id, ValidadorUbi $request){
         $ubicacion = Ubicacion::findOrFail($id);
         $ubicacion -> nombre = $request -> nombreU;
         $ubicacion -> telefono = $request -> telefono;
