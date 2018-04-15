@@ -27,8 +27,8 @@
                     <input type="file" class="form-control-file" name="logo" id="logo">
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                    <label for="rubro">Rubro</label>
-                    <select name="rubro_id" class="form-control" id="rubro_id" required>
+                    <label>Rubro</label>
+                    <select name="rubro_id" class="form-control" >
                         @foreach ($rubros as $rubro)
                             <option value="{{$rubro -> id}}">{{$rubro -> nombre}}</option>
                         @endforeach
@@ -138,11 +138,12 @@
 
     </div>
 
+@push('scripts')
     <script src="{{asset('js/mapaReg.js')}}"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
     </script>
     <script src="{{asset('js/tabla.js')}}"></script>
-
+@endpush
 @endsection
 

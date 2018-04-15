@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="nombre">Nombre</label>
-                    <input class="form-control" type="text" name="nombreE" value="{{$empresa->nombre}}">
+                    <input class="form-control" type="text" name="nombreE" value="{{$empresa->nombre}}" required>
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="logo">Logo</label>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="clave">Palabras clave</label>
-                    <input class="form-control" type="text" name="clave" id="clave" value="{{$empresa->clave}}">
+                    <input class="form-control" type="text" name="clave" id="clave" value="{{$empresa->clave}}" required>
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="email">Email</label>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                     <label for="descripcion">Descripcion</label>
-                    <textarea class="form-control" type="text" name="descripcion" id="descripcion">{{$empresa->descripcion}}</textarea>
+                    <textarea class="form-control" type="text" name="descripcion" id="descripcion" required>{{$empresa->descripcion}}</textarea>
                 </div>
             </div>
             <hr>

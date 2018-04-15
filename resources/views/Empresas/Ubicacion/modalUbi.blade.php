@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="telefono">Telefono</label>
-                            <input class="form-control" type="number" minlength="6" name="telefono" id="telefono" required>
+                            <input class="form-control" type="number" name="telefono" id="telefono">
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="departamento">Departamento</label>
