@@ -33,7 +33,7 @@ Route::put('ubicacion/editar/{id}','UbicacionController@editar');
 
 
 /* ******************* Rutas para los rubros ****************** */
-
+Route::get('verRubros','RubroController@verRubros');
 
 
 

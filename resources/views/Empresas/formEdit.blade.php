@@ -93,7 +93,7 @@
         {!!Form::close()!!}
     </div>
 
-    @include('Empresa.Ubicacion.modalUbi')
+    @include('Empresas.Ubicacion.modalUbi')
 
     <script src="{{asset('js/edit.js')}}"></script>
     <script async defer

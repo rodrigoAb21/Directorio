@@ -17,6 +17,7 @@ class Empresa extends Model
         'descripcion',
         'web',
         'clave',
+        'claveBusqueda',
         'email',
         'logo',
         'rubro_id',

@@ -16,11 +16,12 @@ class CreateEmpresaTable extends Migration
         Schema::create('empresa', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('descripcion');
-            $table->string('web');
+            $table->string('logo') -> nullable();
+            $table->string('email') -> nullable();
+            $table->string('web') -> nullable();
             $table->string('clave');
-            $table->string('email');
-            $table->string('logo');
+            $table->string('claveBusqueda');
+            $table->string('descripcion');
             $table->integer('rubro_id') -> unsigned();
 
             $table -> foreign('rubro_id') -> references('id') -> on('rubro');

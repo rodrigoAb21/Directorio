@@ -58,7 +58,7 @@
     </div>
 </div>
 
-@include('empresa.modalEmpresa')
+@include('Empresas.modalEmpresa')
 
 <script>
     var ubicaciones = [];

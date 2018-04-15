@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="rubro">Rubro</label>
-                    <select name="rubro_id" class="form-control" id="rubro_id">
+                    <select name="rubro_id" class="form-control" id="rubro_id" required>
                         @foreach ($rubros as $rubro)
                             <option value="{{$rubro -> id}}">{{$rubro -> nombre}}</option>
                         @endforeach
@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="email">Email</label>
-                    <input class="form-control" type="email" name="email" id="email" required>
+                    <input class="form-control" type="email" name="email" id="email">
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="web">Sitio Web</label>
@@ -92,15 +92,15 @@
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <label for="nombres">Nombre</label>
-                                    <input class="form-control" type="text" name="nombres" id="nombres">
+                                    <input class="form-control" type="text" name="nombres" id="nombres" required>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <label for="telefono">Telefono</label>
-                                    <input class="form-control" type="tel" name="telefono" id="telefono">
+                                    <input class="form-control" type="number" name="telefono" id="telefono">
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <label for="departamento">Departamento</label>
-                                    <select class="form-control" name="departamento" id="departamento">
+                                    <select class="form-control" name="departamento" id="departamento" required>
                                         <option value="Santa Cruz">Santa Cruz</option>
                                         <option value="La Paz">La Paz</option>
                                         <option value="Cochabamba">Cochabamba</option>
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <label for="direccion">Dirección</label>
-                                    <textarea name="direccion" id="direccion" rows="2" class="form-control"></textarea>
+                                    <textarea name="direccion" id="direccion" rows="2" class="form-control" required></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
@@ -142,7 +142,7 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
     </script>
-    <script src="{{asset('js/formulario.js')}}"></script>
+    <script src="{{asset('js/tabla.js')}}"></script>
 
 @endsection
 

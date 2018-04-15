@@ -16,6 +16,7 @@ class CreateRubroTable extends Migration
         Schema::create('rubro', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('icono');
         });
     }
 

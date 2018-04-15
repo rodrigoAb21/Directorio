@@ -13,7 +13,8 @@ class Rubro extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nombre'
+        'nombre',
+        'icono',
     ];
 
     public function empresas(){
