@@ -19,7 +19,6 @@ class EmpresaController extends Controller
     }
 
     public function limpiarTexto($cadena){
-
         return $cadena;
     }
 
@@ -27,7 +26,7 @@ class EmpresaController extends Controller
         try {
             DB::beginTransaction();
             $empresa = new Empresa();
-            $empresa -> nombre = $request -> nombre;
+            $empresa -> nombre = $request -> nombreE;
             $empresa -> web = $request -> web;
             $empresa -> clave = $request -> clave;
             $empresa -> claveBusqueda = $this -> limpiarTexto($request -> clave);
@@ -92,7 +91,7 @@ class EmpresaController extends Controller
         $empresa -> nombre = $request -> nombreE;
         $empresa -> web = $request -> web;
         $empresa -> clave = $request -> clave;
-        $empresa -> claveBusqueda = formatoClave($request -> clave);
+        $empresa -> claveBusqueda = $this -> limpiarTexto($request -> clave);
         $empresa -> email = $request -> email;
         $empresa -> descripcion = $request -> descripcion;
         if (Input::hasFile('logo')) {

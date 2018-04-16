@@ -22,11 +22,11 @@
             <div class="row">
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="nombre">Nombre</label>
-                    <input class="form-control" type="text" name="nombreE" value="{{$empresa->nombre}}" required>
+                    <input id="nombreE" class="form-control" type="text" name="nombreE" value="{{$empresa->nombre}}" required>
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="logo">Logo</label>
-                    <input type="file" class="form-control-file" name="logo">
+                    <input id="logo" type="file" class="form-control-file" name="logo">
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="rubro">Rubro</label>
@@ -94,11 +94,12 @@
     </div>
 
     @include('Empresas.Ubicacion.modalUbi')
-
+@push('scripts')
     <script src="{{asset('js/edit.js')}}"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
     </script>
-
+    <script src="{{asset('js/validador.js')}}"></script>
+@endpush
 @endsection
 

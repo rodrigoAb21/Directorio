@@ -24,12 +24,12 @@ class ValidadorReg extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|max:255',
+            'nombreE' => 'required|max:255',
             'descripcion' => 'required|max:255',
-            'web' => 'required|max:255',
+            'web' => 'nullable|max:255',
             'clave' => 'required|max:255',
-            'email' => 'required|max:255',
-            'logo' => 'required|image|mimes:jpg,jpeg,bmp,png',
+            'email' => 'nullable|max:255',
+            'logo' => 'nullable|image|mimes:jpg,jpeg,bmp,png',
             'rubro_id' => 'required|numeric',
             'nombreT' => 'required|array|min:1',
             'nombreT.*' => 'required',
@@ -37,8 +37,8 @@ class ValidadorReg extends FormRequest
             'direccionT.*' => 'required',
             'departamentoT' => 'required|array|min:1',
             'departamentoT.*' => 'required',
-            'telefonoT' => 'required|array|min:1',
-            'telefonoT.*' => 'numeric|min:6',
+            'telefonoT' => 'nullable||array|min:1',
+            'telefonoT.*' => 'nullable|numeric|min:6',
             'longitudT' => 'required|array|min:1',
             'longitudT.*' => 'required',
             'latitudT' => 'required|array|min:1',

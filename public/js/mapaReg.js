@@ -1,12 +1,14 @@
 var map;
 var marcador;
+var centro = {lat: -17.7851016, lng: -63.1803851};
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
-        center: {lat: -17.7851016, lng: -63.1803851},
-        mapTypeId: 'terrain'
+        center: centro,
     });
+
+    agregarMarcador(centro);
 
     map.addListener('click', function(event) {
         agregarMarcador(event.latLng);

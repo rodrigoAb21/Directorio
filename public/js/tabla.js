@@ -1,7 +1,7 @@
 var cont = 0;
 
 function agregar() {
-    var nombre = $('#nombres').val();
+    var nombre = $('#nombreU').val();
     var telefono = $('#telefono').val();
     var departamento = $('#departamento option:selected').val();
     var direccion= $('#direccion').val();
@@ -23,7 +23,7 @@ function agregar() {
 }
 
 function limpiar(){
-    $('#nombres').val("");
+    $('#nombreU').val("");
     $('#telefono').val("");
     $('#direccion').val("");
     $('#lati1').val("");

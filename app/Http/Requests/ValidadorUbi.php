@@ -25,7 +25,7 @@ class ValidadorUbi extends FormRequest
     {
         return [
             'nombreU' => 'required|max:255',
-            'telefono' => 'required|numeric|min:6',
+            'telefono' => 'nullable|numeric|min:6',
             'departamento' => 'required|max:255',
             'direccion' => 'required|max:255',
             'longitud' => 'required',

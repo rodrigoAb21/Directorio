@@ -20,11 +20,11 @@
             <div class="row">
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="nombre">Nombre</label>
-                    <input class="form-control" type="text" name="nombre" id="nombre" required>
+                    <input class="form-control" type="text" name="nombreE" id="nombreE" required>
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label for="logo">Logo</label>
-                    <input type="file" class="form-control-file" name="logo" id="logo">
+                    <input type="file" class="form-control-file" name="logo" id="logo" accept="image/jpeg, image/jpg, image/png, image/bmp">
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
                     <label>Rubro</label>
@@ -91,12 +91,12 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <label for="nombres">Nombre</label>
-                                    <input class="form-control" type="text" name="nombres" id="nombres" required>
+                                    <label for="nombreU">Nombre</label>
+                                    <input class="form-control" type="text" name="nombreU" id="nombreU" required>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <label for="telefono">Telefono</label>
-                                    <input class="form-control" type="number" name="telefono" id="telefono">
+                                    <input class="form-control" type="text" name="telefono" id="telefono">
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <label for="departamento">Departamento</label>
@@ -134,8 +134,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
 @push('scripts')
@@ -144,6 +142,7 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
     </script>
     <script src="{{asset('js/tabla.js')}}"></script>
+    <script src="{{asset('js/validador.js')}}"></script>
 @endpush
 @endsection
 
