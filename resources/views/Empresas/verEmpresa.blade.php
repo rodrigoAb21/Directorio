@@ -54,16 +54,28 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div id="map" style="width: 100%; height: 500px; background: #b4c1cd"></div>
         </div>
-        </div>
     </div>
+    {{$ubicaciones -> links()}}
 </div>
+</div>
+
 
 @include('Empresas.modalEmpresa')
 
 <script>
     var ubicaciones = [];
+    var markers = [];
+    var contenido = '<div class="container">'+
+    '<h3>Nombre Lugar</h3>'+
+    '<hr>'+
+    '<p><b>Telefono: </b> 123456 </p>'+
+    '<p><b>Direccion: </b> Un lugar lejano muy muy lejanos, por alla en un cerro #452 </p>'+
+    '</div>';
+
+
+
     @foreach($ubicaciones as $ubi)
-    ubicaciones.push({nombre:'{{$ubi->nombre}}', lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
+    ubicaciones.push({nombre:'{{$ubi -> nombre}}', direccion: '{{$ubi -> direccion}}' , lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
     @endforeach
 
     function initMap() {
@@ -77,9 +89,22 @@
                 position: {lat: ele['lati'], lng: ele['long']},
                 map: map,
                 title: ele['nombre']
-
             });
+            markers.push(marker);
         })
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contenido,
+            maxWidth: 250
+        });
+
+        markers[0].addListener('mouseover', function() {
+            infowindow.open(map, markers[0]);
+        });
+        markers[0].addListener('mouseout', function() {
+            infowindow.close();
+        });
+
     }
 
 </script>

@@ -76,7 +76,7 @@
         {!!Form::close()!!}
 
 
-
+        <!-- ---------- Modal--------------  -->
 
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -120,8 +120,6 @@
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div id="map" style="width: 100%; height: 400px; background: #b4c1cd; margin-bottom: 1rem"></div>
-                                    <input type="hidden" id="long1" />
-                                    <input type="hidden" id="lati1" />
                                 </div>
                             </div>
                         </div>
@@ -137,11 +135,10 @@
     </div>
 
 @push('scripts')
-    <script src="{{asset('js/mapaReg.js')}}"></script>
+    <script src="{{asset('js/registro.js')}}"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
     </script>
-    <script src="{{asset('js/tabla.js')}}"></script>
     <script src="{{asset('js/validador.js')}}"></script>
 @endpush
 @endsection

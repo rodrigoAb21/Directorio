@@ -72,14 +72,18 @@ class EmpresaController extends Controller
 
     public function verEmpresa($id){
         $empresa = Empresa::findOrFail($id);
-        $ubicaciones = DB::table('ubicacion') -> where('empresa_id','=',$id) -> get();
+        $ubicaciones = DB::table('ubicacion')
+            -> where('empresa_id','=',$id)
+            -> paginate(1);
 
         return view('Empresas/verEmpresa',['empresa' => $empresa, 'ubicaciones' => $ubicaciones]);
     }
 
     public function vistaEditar($id){
         $empresa= Empresa::findOrFail($id);
-        $ubicaciones = DB::table('ubicacion') -> where('empresa_id','=',$id) -> get();
+        $ubicaciones = DB::table('ubicacion')
+            -> where('empresa_id','=',$id)
+            -> paginate(1);
         $rubros= Rubro::all();
         $dptos = ['La Paz', 'Cochabamba','Santa Cruz','Oruro','Potosi','Sucre','Tarija','Pando','Beni'];
 

@@ -75,8 +75,8 @@
                     @foreach($ubicaciones as $ubicacion )
                     <tr>
                         <td>
-                            <button class="btn btn-warning" type="button" onclick="modalEdit('{{$ubicacion -> id}}', '{{$ubicacion -> nombre}}', '{{$ubicacion -> telefono}}', '{{$ubicacion -> direccion}}', '{{$ubicacion -> departamento}}', '{{$ubicacion -> latitud}}', '{{$ubicacion -> longitud}}')"><i class="fa fa-pencil-alt"></i></button>
-                            <a href=""><button class="btn btn-danger"><i class="fa fa-trash-alt"></i></button></a>
+                            <button class="btn btn-warning btn-sm" type="button" onclick="modalEdit('{{$ubicacion -> id}}', '{{$ubicacion -> nombre}}', '{{$ubicacion -> telefono}}', '{{$ubicacion -> direccion}}', '{{$ubicacion -> departamento}}', '{{$ubicacion -> latitud}}', '{{$ubicacion -> longitud}}')"><i class="fa fa-pencil-alt"></i></button>
+                            <a href=""><button class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></button></a>
                         </td>
                         <td>{{$ubicacion->nombre}}</td>
                         <td>{{$ubicacion->departamento}}</td>
@@ -86,6 +86,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {{$ubicaciones -> links()}}
             </div>
         <div class="form-group">
             <button id="btSave" type="submit" class="btn btn-primary">Guardar</button>
