@@ -18,9 +18,7 @@ class EmpresaController extends Controller
         return view('Empresas/formReg', ['rubros' => $rubros]);
     }
 
-    public function limpiarTexto($cadena){
-        return $cadena;
-    }
+
 
     public function registrar(ValidadorReg $request){
         try {
@@ -29,7 +27,7 @@ class EmpresaController extends Controller
             $empresa -> nombre = $request -> nombreE;
             $empresa -> web = $request -> web;
             $empresa -> clave = $request -> clave;
-            $empresa -> claveBusqueda = $this -> limpiarTexto($request -> clave);
+            $this->cargarPalabras($request -> clave);
             $empresa -> email = $request -> email;
             $empresa -> descripcion = $request -> descripcion;
             if (Input::hasFile('logo')) {
@@ -95,7 +93,7 @@ class EmpresaController extends Controller
         $empresa -> nombre = $request -> nombreE;
         $empresa -> web = $request -> web;
         $empresa -> clave = $request -> clave;
-        $empresa -> claveBusqueda = $this -> limpiarTexto($request -> clave);
+        $this->recargarPalabras($request -> clave);
         $empresa -> email = $request -> email;
         $empresa -> descripcion = $request -> descripcion;
         if (Input::hasFile('logo')) {
@@ -114,6 +112,14 @@ class EmpresaController extends Controller
         $empresa -> delete();
 
         return redirect('/');
+    }
+
+    public function cargarPalabras($cadena){
+        return $cadena;
+    }
+
+    public function recargarPalabras($cadena){
+        return $cadena;
     }
 
 }

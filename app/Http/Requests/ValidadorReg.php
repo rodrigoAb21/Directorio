@@ -37,12 +37,27 @@ class ValidadorReg extends FormRequest
             'direccionT.*' => 'required',
             'departamentoT' => 'required|array|min:1',
             'departamentoT.*' => 'required',
-            'telefonoT' => 'nullable||array|min:1',
-            'telefonoT.*' => 'nullable|numeric|min:6',
+            'telefonoT' => 'nullable|array|min:1',
+            'telefonoT.*' => 'nullable|digits_between:7,8',
             'longitudT' => 'required|array|min:1',
             'longitudT.*' => 'required',
             'latitudT' => 'required|array|min:1',
             'latitudT.*' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nombreE.required' => 'Ingrese el nombre de la empresa.',
+            'descripcion.required' => 'Ingrese la descripcion de la empresa.',
+            'clave.required' => 'Ingrese las palabras clave para la busqueda',
+            'rubro_id.required' => 'Seleccione un rubro correcto.',
+            'nombreT.*.required' => 'Ingrese el nombre de las ubicaciones',
+            'direccionT.*.required' => 'Ingrese la direccion de las ubicaciones.',
+            'departamentoT.*.required' => 'Debe seleccionar un departamento.',
+            'longitudT.*.required' => 'Asegurese de utilizar el mapa',
+            'latitudT.*.required' => 'Asegurese de utilizar el mapa',
         ];
     }
 }

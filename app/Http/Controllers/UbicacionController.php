@@ -43,16 +43,14 @@ class UbicacionController extends Controller
         return redirect('empresa/editar/'.$ubicacion->empresa_id);
     }
 
-    public function listarPorRubro($id){
-        $resultados = DB::table('ubicacion')
-            -> join('empresa','empresa.id','=','ubicacion.empresa_id')
-            -> join('rubro','rubro.id','=','empresa.rubro_id')
-            -> where('rubro','=',$id)
-            -> select('ubicacion.id', 'ubicacion.nombre', 'ubicacion.telefono', 'ubicacion.direccion', 'ubicacion.longitud', 'ubicacion.latitud')
-            -> get();
 
-        $rubro = Rubro::findOrFail($id);
 
-        return view('busqueda.resultado',['resultados' => $resultados, 'busqueda' => $rubro -> nombre]);
-    }
+
+
+
+
+
+
+
+
 }

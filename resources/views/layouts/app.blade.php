@@ -20,6 +20,7 @@
 <header>
 <nav class="navbar navbar-light bg-light justify-content-between" >
  <a href="{{url('/')}}" class="navbar-brand">DIRECTORIO</a>
+    <a href="{{url('rubros')}}"><h6><span class="badge badge-success">Gestionar Rubros</span></h6></a>
     <form class="form-inline">
         <a href="{{url('verRubros')}}" class="btn btn-outline-danger mr-1">Rubros</a>
         <a href="{{url('/registrarEmpresa')}}" class="btn btn-outline-warning">Registrar empresa <i class="fa fa-plus"></i></a>

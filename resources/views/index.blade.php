@@ -4,27 +4,16 @@
         <div class="mt-5">
             <h1 class="display-3">Bienvenido</h1>
             <hr class="col-2">
-                <form>
+                <form method="POST" action="{{url('busqueda')}}">
                     <div class="container col-8">
                         <div class="form-row">
-                            <div class="col-8">
+                            <div class="col-12">
                                 <input class="form-control" type="search" placeholder="¿Qué buscas?" aria-label="Buscar" >
-                            </div>
-                            <div class="col-4">
-                                <select name="filtro2" class="form-control" id="filtro2">
-                                    <option value="">Lugar</option>
-                                    <option value="">Santa Cruz</option>
-                                    <option value="">Cochabamba</option>
-                                    <option value="">La Paz</option>
-                                    <option value="">Oruro</option>
-                                    <option value="">Potosi</option>
-                                    <option value="">Sucre</option>
-                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <a href="listarBusqueda.html" class="btn btn-primary btn-lg mt-3 col4"><i class="fa fa-search"></i> BUSCAR</a>
+                        <button class="btn btn-primary btn-lg mt-3" type="submit"><i class="fa fa-search"></i> BUSCAR</button>
                     </div>
                 </form>
             <div class="container">

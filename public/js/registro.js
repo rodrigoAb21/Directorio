@@ -38,25 +38,19 @@ function agregar() {
     var direccion= $('#direccion').val();
     var latitud= marcador.getPosition().lat();
     var longitud= marcador.getPosition().lng();
-
-    var fila='<tr id="fila'+cont+'"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar('+cont+');"><i class="fa fa-trash" aria-hidden="true"></i></button><input type="hidden" name="longitudT[]" value="'+longitud+'"/><input type="hidden" name="latitudT[]" value="'+latitud+'"/></td><td><input type="hidden" name="nombreT[]" value="'+nombre+'"/>'+nombre+'</td><td><input type="hidden" name="departamentoT[]" value="'+departamento+'"/>'+departamento+'</td><td><input type="hidden" name="telefonoT[]" value="'+telefono+'"/>'+telefono+'</td><td><input type = "hidden" name = "direccionT[]" value = "'+direccion+'" />'+direccion+'</td></tr>';
-
-    cont++;
-
-    $("#tabla").append(fila); // sirve para anhadir una fila a los detalles
-
+    if (nombre && direccion){
+        var fila='<tr id="fila'+cont+'"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar('+cont+');"><i class="fa fa-trash" aria-hidden="true"></i></button><input type="hidden" name="longitudT[]" value="'+longitud+'"/><input type="hidden" name="latitudT[]" value="'+latitud+'"/></td><td><input type="hidden" name="nombreT[]" value="'+nombre+'"/>'+nombre+'</td><td><input type="hidden" name="departamentoT[]" value="'+departamento+'"/>'+departamento+'</td><td><input type="hidden" name="telefonoT[]" value="'+telefono+'"/>'+telefono+'</td><td><input type = "hidden" name = "direccionT[]" value = "'+direccion+'" />'+direccion+'</td></tr>';
+        $("#tabla").append(fila); // sirve para anhadir una fila a los detalles
+        cont++;
+        evaluar();
+    }
     limpiar();
-    evaluar();
-
-
 }
 
 function limpiar(){
     $('#nombreU').val("");
     $('#telefono').val("");
     $('#direccion').val("");
-    $('#lati1').val("");
-    $('#long1').val("");
 }
 
 function eliminar(index){

@@ -17,7 +17,6 @@ class Empresa extends Model
         'descripcion',
         'web',
         'clave',
-        'claveBusqueda',
         'email',
         'logo',
         'rubro_id',
@@ -30,5 +29,8 @@ class Empresa extends Model
     public function ubicaciones(){
         return $this -> hasMany('App\Modelos\Ubicacion');
     }
-    
+
+    public function palEmpresas(){
+        return $this -> hasMany('App\Modelos\Pal_empresa');
+    }
 }

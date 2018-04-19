@@ -46,6 +46,7 @@ Route::delete('rubros/eliminar/{id}','RubroController@eliminar');
 
 
 /* ******************* Rutas para las busquedas ****************** */
-
+Route::get('rubro/{id}','BusquedaController@listarPorRubro');
+Route::post('busqueda','BusquedaController@buscar');
 
 
