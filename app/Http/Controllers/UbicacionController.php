@@ -40,7 +40,7 @@ class UbicacionController extends Controller
         $ubicacion=Ubicacion::findOrFail($id);
         $ubicacion->delete();
 
-        return redirect('empresa/eliminar/'.$ubicacion->empresa_id);
+        return redirect('empresa/editar/'.$ubicacion->empresa_id);
     }
 
     public function listarPorRubro($id){

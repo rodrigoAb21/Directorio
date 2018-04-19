@@ -56,6 +56,13 @@ function modalReg (id) {
     $('#modalEdit').modal('show');
 }
 
+function modalElim (id, nombre) {
+    $("#formElim").attr("action", "http://127.0.0.1:8000/ubicacion/eliminar/" + id);
+    $("#modalElim").modal('show');
+    $('#textoEliminar').html("¿Desea eliminar la ubicacion: " + nombre + "?");
+    $("#modalElim").modal('show');
+}
+
 function limpiarCampos() {
     $('#nombreU').val("");
     $('#telefono').val("");

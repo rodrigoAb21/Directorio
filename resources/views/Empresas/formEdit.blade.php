@@ -75,8 +75,8 @@
                     @foreach($ubicaciones as $ubicacion )
                     <tr>
                         <td>
+                            <button class="btn btn-danger btn-sm" type="button" onclick="modalElim('{{$ubicacion -> id}}', '{{$ubicacion -> nombre}}')"><i class="fa fa-trash-alt"></i></button>
                             <button class="btn btn-warning btn-sm" type="button" onclick="modalEdit('{{$ubicacion -> id}}', '{{$ubicacion -> nombre}}', '{{$ubicacion -> telefono}}', '{{$ubicacion -> direccion}}', '{{$ubicacion -> departamento}}', '{{$ubicacion -> latitud}}', '{{$ubicacion -> longitud}}')"><i class="fa fa-pencil-alt"></i></button>
-                            <a href=""><button class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></button></a>
                         </td>
                         <td>{{$ubicacion->nombre}}</td>
                         <td>{{$ubicacion->departamento}}</td>
@@ -95,6 +95,7 @@
     </div>
 
     @include('Empresas.Ubicacion.modalUbi')
+    @include('Empresas.Ubicacion.modalEliminar')
 @push('scripts')
     <script src="{{asset('js/edit.js')}}"></script>
     <script async defer
