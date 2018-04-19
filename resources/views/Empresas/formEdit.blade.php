@@ -86,7 +86,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                {{$ubicaciones -> links()}}
+                <nav class="pagination justify-content-center">{{$ubicaciones -> render()}}</nav>
             </div>
         <div class="form-group">
             <button id="btSave" type="submit" class="btn btn-primary">Guardar</button>

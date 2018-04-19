@@ -74,7 +74,7 @@ class EmpresaController extends Controller
         $empresa = Empresa::findOrFail($id);
         $ubicaciones = DB::table('ubicacion')
             -> where('empresa_id','=',$id)
-            -> paginate(1);
+            -> paginate(7);
 
         return view('Empresas/verEmpresa',['empresa' => $empresa, 'ubicaciones' => $ubicaciones]);
     }
@@ -83,7 +83,7 @@ class EmpresaController extends Controller
         $empresa= Empresa::findOrFail($id);
         $ubicaciones = DB::table('ubicacion')
             -> where('empresa_id','=',$id)
-            -> paginate(1);
+            -> paginate(5);
         $rubros= Rubro::all();
         $dptos = ['La Paz', 'Cochabamba','Santa Cruz','Oruro','Potosi','Sucre','Tarija','Pando','Beni'];
 

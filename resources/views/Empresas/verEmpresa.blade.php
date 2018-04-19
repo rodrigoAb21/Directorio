@@ -38,9 +38,9 @@
     <p><h2>Ubicaciones</h2></p>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="list-group mb-3" style="overflow-y: scroll; max-height: 500px">
+            <div id="lista" class="list-group mb-3" style="overflow-y: scroll; max-height: 500px">
                 @foreach($ubicaciones as $ubicacion)
-                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                    <li id="{{$loop->index}}" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">{{$ubicacion -> nombre}}</h5>
                             <small class="text-muted">{{$ubicacion -> departamento}}</small>
@@ -55,62 +55,28 @@
             <div id="map" style="width: 100%; height: 500px; background: #b4c1cd"></div>
         </div>
     </div>
-    {{$ubicaciones -> links()}}
+    <nav class="pagination justify-content-center mt-3">{{$ubicaciones -> render()}}</nav>
 </div>
 </div>
-
 
 @include('Empresas.modalEmpresa')
-
+@push('scripts')
 <script>
     var ubicaciones = [];
-    var markers = [];
-    var contenido = '<div class="container">'+
-    '<h3>Nombre Lugar</h3>'+
-    '<hr>'+
-    '<p><b>Telefono: </b> 123456 </p>'+
-    '<p><b>Direccion: </b> Un lugar lejano muy muy lejanos, por alla en un cerro #452 </p>'+
-    '</div>';
-
-
 
     @foreach($ubicaciones as $ubi)
-    ubicaciones.push({nombre:'{{$ubi -> nombre}}', direccion: '{{$ubi -> direccion}}' , lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
+    ubicaciones.push({id:'{{$ubi -> id}}', nombre:'{{$ubi -> nombre}}', direccion: '{{$ubi -> direccion}}', telefono: '{{$ubi -> telefono}}' , lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
     @endforeach
 
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 12,
-            center:{lat: -17.7851016, lng: -63.1803851},
-        });
-
-        ubicaciones.forEach(function (ele) {
-            var marker = new google.maps.Marker({
-                position: {lat: ele['lati'], lng: ele['long']},
-                map: map,
-                title: ele['nombre']
-            });
-            markers.push(marker);
-        })
-
-        var infowindow = new google.maps.InfoWindow({
-            content: contenido,
-            maxWidth: 250
-        });
-
-        markers[0].addListener('mouseover', function() {
-            infowindow.open(map, markers[0]);
-        });
-        markers[0].addListener('mouseout', function() {
-            infowindow.close();
-        });
-
-    }
+    $("#lista li").hover(function () {
+        var idHover = $(this).attr('id');
+        resaltarMarcador(idHover);
+    })
 
 </script>
-
+<script src="{{asset('js/ver.js')}}"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
 </script>
-
+@endpush
 @endsection

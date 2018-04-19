@@ -9,7 +9,6 @@ class RubroController extends Controller
 {
     public function verRubros(){
         $rubros = Rubro::all();
-
         return view('Rubros.verRubros', ['rubros' => $rubros]);
     }
 }
