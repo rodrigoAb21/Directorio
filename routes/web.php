@@ -27,14 +27,17 @@ Route::patch('empresa/editar/{id}','EmpresaController@editar');
 /* ******************* Rutas para ubicaciones ****************** */
 Route::post('empresa/{id}/registrarUbicacion','UbicacionController@registrar');
 Route::put('ubicacion/editar/{id}','UbicacionController@editar');
-
+Route::delete('ubicacion/eliminar/{id}','UbicacionController@eliminar');
 
 
 
 
 /* ******************* Rutas para los rubros ****************** */
 Route::get('verRubros','RubroController@verRubros');
-
+Route::get('rubros','RubroController@index');
+Route::post('rubros/registrar','RubroController@registrar');
+Route::patch('rubros/editar/{id}','RubroController@editar');
+Route::delete('rubros/eliminar/{id}','RubroController@eliminar');
 
 
 

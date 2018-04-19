@@ -36,6 +36,13 @@ class UbicacionController extends Controller
         return redirect('empresa/editar/'.$ubicacion -> empresa_id);
     }
 
+    public function eliminar($id){
+        $ubicacion=Ubicacion::findOrFail($id);
+        $ubicacion->delete();
+
+        return redirect('empresa/eliminar/'.$ubicacion->empresa_id);
+    }
+
     public function listarPorRubro($id){
         $resultados = DB::table('ubicacion')
             -> join('empresa','empresa.id','=','ubicacion.empresa_id')
