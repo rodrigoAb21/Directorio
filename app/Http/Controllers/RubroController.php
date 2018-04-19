@@ -14,7 +14,9 @@ class RubroController extends Controller
 
     public function index(){
         $rubros=Rubro::all();
-        return view('Rubros.gestRubros',['rubros'=>$rubros]);
+        $iconos=['plus','bed','cut','taxi'];
+
+        return view('Rubros.gestRubros',['rubros'=>$rubros,'iconos'=>$iconos]);
     }
 
 
@@ -28,16 +30,10 @@ class RubroController extends Controller
     }
 
     public function eliminar($id){
-        $empresas = DB::table('empresa')
-            -> join('rubro','rubro.id','=','empresa.rubro_id')
-            -> where('rubro','=',$id)
-            -> get('empresa.id');
-        $empresas -> ubicaciones() -> delete();
-        $empresas -> delete();
         $rubro= Rubro::findOrFail($id);
         $rubro->delete();
 
-        return redirect('gestRubros');
+        return redirect('rubros');
     }
 
     public function editar(Request $request, $id){
@@ -45,6 +41,6 @@ class RubroController extends Controller
         $rubro->nombre=$request->nombre;
         $rubro->icono=$request->icono;
         $rubro->update();
-        return redirect('gestRubros');
+        return redirect('rubros');
     }
 }

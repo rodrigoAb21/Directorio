@@ -36,7 +36,7 @@ Route::delete('ubicacion/eliminar/{id}','UbicacionController@eliminar');
 Route::get('verRubros','RubroController@verRubros');
 Route::get('rubros','RubroController@index');
 Route::post('rubros/registrar','RubroController@registrar');
-Route::patch('rubros/editar/{id}','RubroController@editar');
+Route::put('rubros/editar/{id}','RubroController@editar');
 Route::delete('rubros/eliminar/{id}','RubroController@eliminar');
 
 

@@ -1,11 +1,11 @@
-<div class="modal fade hide bd-edit-modal-lg" id="modalRegistrarRubros" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade hide " id="modalRubros" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog ">
         <div class="modal-content">
-            <form method="POST" action="{{url('rubros/registrar')}}" autocomplete="off">
-                <input type="hidden" name="_method" value="POST" id="metodo">
+            <form id="formModalRubro" method="POST" action="" autocomplete="off">
+                <input type="hidden" name="_method" value="" id="metodo">
                 {{ csrf_field() }}
             <div class="modal-header">
-                <h4 id="modalTitulo">Registrar Rubro</h4>
+                <h4 id="modalTitulo"></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -19,7 +19,11 @@
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12">
                             <label for="icono">Icono</label>
-                            <input class="form-control" type="text" name="icono" id="icono" required>
+                            <select class="form-control" name="icono" id="icono">
+                                @foreach($iconos as $icono)
+                                    <option value="{{$icono}}">{{$icono}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -27,6 +31,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Guardar </button>
                 </div>
+            </div>
             </div>
             </form>
         </div>
