@@ -23,7 +23,7 @@ class CreateUbicacionTable extends Migration
             $table->string('longitud');
             $table->integer('empresa_id') -> unsigned();
 
-            $table -> foreign('empresa_id') -> references('id') -> on('empresa');
+            $table -> foreign('empresa_id') -> references('id') -> on('empresa') -> onDelete('cascade');
         });
     }
 

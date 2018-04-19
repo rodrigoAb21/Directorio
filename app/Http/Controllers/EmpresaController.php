@@ -111,7 +111,6 @@ class EmpresaController extends Controller
 
     public function eliminar($id){
         $empresa = Empresa::findOrFail($id);
-        $empresa -> ubicaciones() -> delete();
         $empresa -> delete();
 
         return redirect('/');

@@ -1,4 +1,5 @@
 	INSERT INTO `rubro` (`id`, `nombre`, `icono`) VALUES
+	(NULL, 'Otros', 'plus'),
 	(NULL, 'Alojamientos', 'bed'),
 	(NULL, 'Hoteles', 'h-square '),
 	(NULL, 'Peluquerias', 'cut'),
@@ -21,6 +22,6 @@
 	(NULL, 'Tintorerias', 'black-tie'),
 	(NULL, 'Restaurantes', 'utensils'),
 	(NULL, 'Industrias', 'industry'),
-	(NULL, 'Cines', 'film'),
-	(NULL, 'Otros', 'plus');
+	(NULL, 'Cines', 'film');
+
 

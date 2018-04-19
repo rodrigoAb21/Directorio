@@ -24,7 +24,7 @@ class CreateEmpresaTable extends Migration
             $table->string('descripcion');
             $table->integer('rubro_id') -> unsigned();
 
-            $table -> foreign('rubro_id') -> references('id') -> on('rubro');
+            $table -> foreign('rubro_id') -> references('id') -> on('rubro') -> onDelete('cascade');
         });
     }
 
