@@ -28,9 +28,9 @@ class BusquedaController extends Controller
             $ingresada -> save();
         }
 
-        $resultados = DB::select('select * from ubicacion where ubicacion.empresa_id in (select empresa.id form empresa, pal_empresa where empresa.id = pal_empresa.id and pal_empresa.id_pal in(select pal_clave.id from pal_clave inner join pal_ing on pal_clave.palabra = pal_ing.pal_ingresada) group by empresa.id order by count(id_pal) desc)');
+        $resultados = DB::select('select * from ubicacion where ubicacion.empresa_id in (select empresa.id FROM empresa, pal_empresa where empresa.id = pal_empresa.id_empresa and pal_empresa.id_pal in(select pal_clave.id from pal_clave inner join pal_ing on pal_clave.palabra = pal_ing.pal_ingresada) group by empresa.id order by count(id_pal) desc)');
 
-        Pal_ing::all() -> delete();
+        DB::table('pal_ing')->delete();
 
         return view('Busqueda.resultado',['ubicaciones' => $resultados, 'busqueda' => $request -> busqueda]);
 
@@ -40,13 +40,16 @@ class BusquedaController extends Controller
         $cadena = "";
         $arreglo = array();
         for ($i = 0; $i < strlen($texto); $i++) {
-            if ($texto[i] != " "){
-                $cadena = $cadena + $texto[i];
+            if ($texto[$i] != " "){
+                $cadena = $cadena . $texto[$i];
+
             }else{
                 $arreglo[] = $cadena;
+
                 $cadena = "";
             }
         }
+        $arreglo[] = $cadena;
         return $arreglo;
     }
 

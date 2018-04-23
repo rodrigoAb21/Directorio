@@ -12,7 +12,5 @@ class Pal_ing extends Model
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'pal_ingresada',
-    ];
+
 }

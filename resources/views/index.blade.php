@@ -5,10 +5,11 @@
             <h1 class="display-3">Bienvenido</h1>
             <hr class="col-2">
                 <form method="POST" action="{{url('busqueda')}}">
+                    {{csrf_field()}}
                     <div class="container col-8">
                         <div class="form-row">
                             <div class="col-12">
-                                <input class="form-control" type="search" placeholder="¿Qué buscas?" aria-label="Buscar" >
+                                <input class="form-control" type="search" name="busqueda" placeholder="¿Qué buscas?" aria-label="Buscar" >
                             </div>
                         </div>
                     </div>

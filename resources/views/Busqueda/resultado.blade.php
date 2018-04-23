@@ -41,7 +41,7 @@
                 <div id="map" style="width: 100%; height: 500px; background: #b4c1cd"></div>
             </div>
         </div>
-        <nav class="pagination justify-content-center mt-3">{{$ubicaciones -> render()}}</nav>
+
     </div>
 
 

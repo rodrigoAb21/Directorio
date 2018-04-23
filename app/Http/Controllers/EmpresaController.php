@@ -114,8 +114,21 @@ class EmpresaController extends Controller
         return redirect('/');
     }
 
-    public function cargarPalabras($cadena){
-        return $cadena;
+    public function cargarPalabras($texto){
+        $cadena = "";
+        $arreglo = array();
+        for ($i = 0; $i < strlen($texto); $i++) {
+            if ($texto[$i] != " "){
+                $cadena = $cadena . $texto[$i];
+
+            }else{
+                $arreglo[] = $cadena;
+
+                $cadena = "";
+            }
+        }
+        $arreglo[] = $cadena;
+        return $arreglo;
     }
 
     public function recargarPalabras($cadena){
