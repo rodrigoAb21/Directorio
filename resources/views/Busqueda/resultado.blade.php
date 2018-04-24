@@ -17,7 +17,7 @@
                                 <small><img src="{{asset('img/'.$empresa -> logo)}}" alt="logo" height="50px" width="50px" class="img-thumbnail"></small>
                             </div>
                             <small><a href="https://{{$empresa -> web}}" target="_blank"><i class="fa fa-globe"></i> {{$empresa -> web}}</a></small>
-                            <p class="mb-1"><i class="fa fa-envelope"></i> {{$empresa -> email}}</p>
+                            <p class="mb-1"><i class="fa fa-envelope"></i> {{$empresa -> email}}</p><small class="text-right">Coincidencias: {{$empresa -> cant}}</small>
                         </li>
                     @endforeach
                 </div>
@@ -33,10 +33,18 @@
 
     @push('scripts')
         <script>
+            var empresas = [];
+            @foreach($empresas as $emp)
+                empresas.push({{$emp -> id}})
+            @endforeach
+
             var ubicaciones = [];
 
+
             @foreach($ubicaciones as $ubi)
-            ubicaciones.push({id:'{{$ubi -> id}}', nombre:'{{$ubi -> nombre}}', lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
+                   if (empresas.includes({{$ubi -> id}})){
+                        ubicaciones.push({id:'{{$ubi -> id}}', nombre:'{{$ubi -> nombre}}', lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
+                    }
             @endforeach
 
             $("#lista li").hover(function () {

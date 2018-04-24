@@ -22,11 +22,9 @@ function initMap() {
 function resaltarMarcador(id){
     for(var j=0;j<marcadores.length;j++){
         if(marcadores[j].id == id){
-            if (marcadores[j].getAnimation() != null) {
-                marcadores[j].setAnimation(null);
+            if (marcadores[j].getIcon() == "http://maps.google.com/mapfiles/ms/micons/red-dot.png") {
                 marcadores[j].setIcon("http://maps.google.com/mapfiles/ms/micons/blue-dot.png");
             } else {
-                marcadores[j].setAnimation(google.maps.Animation.BOUNCE);
                 marcadores[j].setIcon("http://maps.google.com/mapfiles/ms/micons/red-dot.png");
             }
         }

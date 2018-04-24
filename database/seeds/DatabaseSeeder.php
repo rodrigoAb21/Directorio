@@ -11,7 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Modelos\Empresa::class,10000)->create();
-        factory(\App\Modelos\Ubicacion::class,30000)->create();
+        for ($i = 0; $i < 10; $i++){
+            factory(\App\Modelos\Empresa::class,10000)->create();
+            factory(\App\Modelos\Ubicacion::class,30000)->create();
+        }
     }
 }

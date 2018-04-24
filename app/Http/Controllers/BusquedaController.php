@@ -36,7 +36,7 @@ class BusquedaController extends Controller
         }
 
         //Consulta de la busqueda
-         $empresas = DB::table('pal_empresa')
+          $empresas = DB::table('pal_empresa')
              ->join('busqueda','pal_empresa.palabra','=','busqueda.pal_ingresada')
              ->join('empresa','pal_empresa.id_empresa','empresa.id')
             ->select(DB::raw('empresa.id, COUNT(*) as cant, empresa.nombre, empresa.web, empresa.email, empresa.logo'))
@@ -44,11 +44,12 @@ class BusquedaController extends Controller
             ->orderBy('cant','desc')
             ->paginate(10);
 
-        $ubicaciones = DB::select('SELECT empresa.id, ubicacion.nombre, ubicacion.longitud, ubicacion.latitud
+         $ubicaciones = DB::select('SELECT empresa.id, ubicacion.nombre, ubicacion.longitud, ubicacion.latitud
                                   FROM pal_empresa
                                   INNER JOIN busqueda ON pal_empresa.palabra = busqueda.pal_ingresada
                                   INNER JOIN empresa ON pal_empresa.id_empresa = empresa.id
                                   INNER JOIN ubicacion ON ubicacion.empresa_id = empresa.id');
+
 
         DB::table('busqueda')->delete();
 
