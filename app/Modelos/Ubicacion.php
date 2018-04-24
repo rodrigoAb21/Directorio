@@ -19,6 +19,7 @@ class Ubicacion extends Model
         'longitud',
         'latitud',
         'departamento',
+        'empresa_id',
     ];
 
     public function empresa(){

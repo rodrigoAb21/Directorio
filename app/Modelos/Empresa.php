@@ -33,4 +33,8 @@ class Empresa extends Model
     public function palEmpresas(){
         return $this -> hasMany('App\Modelos\Pal_empresa');
     }
+
+    public function scope_getEmpresasPorRubro($query, $idRubro){
+        return  $query -> where('rubro_id', '=', $idRubro) -> paginate(5);
+    }
 }

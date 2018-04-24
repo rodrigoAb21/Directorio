@@ -18,9 +18,8 @@
 </head>
 <body id="body">
 <header>
-<nav class="navbar navbar-light bg-light justify-content-between" >
+<nav class="navbar navbar-dark bg-dark justify-content-between" >
  <a href="{{url('/')}}" class="navbar-brand">DIRECTORIO</a>
-    <a href="{{url('rubros')}}"><h6><span class="badge badge-success">Gestionar Rubros</span></h6></a>
     <form class="form-inline">
         <a href="{{url('verRubros')}}" class="btn btn-outline-danger mr-1">Rubros</a>
         <a href="{{url('/registrarEmpresa')}}" class="btn btn-outline-warning">Registrar empresa <i class="fa fa-plus"></i></a>
@@ -28,15 +27,6 @@
             <input type="text" class="form-control ml-1" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <a href="listarBusqueda.html" class="btn btn-outline-primary" ><i class="fa fa-search"></i></a>
-                <select name="filtro" class="form-control ml-1" id="filtro">
-                    <option value="">Lugar</option>
-                    <option value="">Santa Cruz</option>
-                    <option value="">Cochabamba</option>
-                    <option value="">La Paz</option>
-                    <option value="">Oruro</option>
-                    <option value="">Potosi</option>
-                    <option value="">Sucre</option>
-                </select>
             </div>
         </div>
     </form>

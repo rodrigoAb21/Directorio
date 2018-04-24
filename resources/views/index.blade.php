@@ -4,7 +4,7 @@
         <div class="mt-5">
             <h1 class="display-3">Bienvenido</h1>
             <hr class="col-2">
-                <form method="POST" action="{{url('busqueda')}}">
+                <form method="GET" action="{{url('busqueda')}}">
                     {{csrf_field()}}
                     <div class="container col-8">
                         <div class="form-row">

@@ -74,7 +74,7 @@
     })
 
 </script>
-<script src="{{asset('js/ver.js')}}"></script>
+<script src="{{asset('js/verEmpresa.js')}}"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTexUsXgEQhRlOybpOk0AOqjSoAjE_v0&callback=initMap">
 </script>

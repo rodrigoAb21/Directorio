@@ -3,7 +3,6 @@
     <div class="container col-lg-8 col col-md-10 col-sm-11">
         <h2 align="center">EDITAR EMPRESA: {{$empresa -> nombre}}</h2>
 
-
         @if($errors -> any())
             <div class="alert alert-danger">
                 <ul>

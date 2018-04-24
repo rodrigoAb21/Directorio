@@ -1,47 +1,32 @@
 @extends('layouts.app')
 @section('contenido')
 
-    <div class="container-fluid mt-2">
+    <div class="container mt-2">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center">Resultados del rubro: "{{$busqueda}}"</h2>
+                <h2 class="text-center">Resultados de{{$busqueda}}</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-12 ">
-                <h6 class="text-center" >Filtrar resultados</h6>
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active">Ver todos</a>
-                    <a href="#" class="list-group-item list-group-item-action">Santa Cruz</a>
-                    <a href="#" class="list-group-item list-group-item-action">Cochabamba</a>
-                    <a href="#" class="list-group-item list-group-item-action">La Paz</a>
-                    <a href="#" class="list-group-item list-group-item-action">Oruro</a>
-                    <a href="#" class="list-group-item list-group-item-action">Potosi</a>
-                    <a href="#" class="list-group-item list-group-item-action">Sucre</a>
-                    <a href="#" class="list-group-item list-group-item-action">Tarija</a>
-                    <a href="#" class="list-group-item list-group-item-action">Pando</a>
-                    <a href="#" class="list-group-item list-group-item-action">Beni</a>
-                </div>
-            </div>
             <div class="col-lg-5 col-md-5 col-sm-12">
                 <div id="lista" class="list-group mb-3" style="overflow-y: scroll; max-height: 500px">
-                    @foreach($ubicaciones as $ubicacion)
-                        <li id="{{$loop->index}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    @foreach($empresas as $empresa)
+                        <li id="{{$empresa->id}}" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">{{$ubicacion -> nombre}}</h5>
-                                <small class="text-muted">{{$ubicacion -> departamento}}</small>
+                                <h4 class="mb-1">{{$empresa -> nombre}}</h4>
+                                <small><img src="{{asset('img/'.$empresa -> logo)}}" alt="logo" height="50px" width="50px" class="img-thumbnail"></small>
                             </div>
-                            <p class="mb-1">{{$ubicacion -> direccion}}</p>
-                            <small><i class="fa fa-phone"></i> {{$ubicacion -> telefono}}</small>
+                            <small><a href="https://{{$empresa -> web}}" target="_blank"><i class="fa fa-globe"></i> {{$empresa -> web}}</a></small>
+                            <p class="mb-1"><i class="fa fa-envelope"></i> {{$empresa -> email}}</p>
                         </li>
                     @endforeach
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-12">
+            <div class="col-lg-7 col-md-7 col-sm-12">
                 <div id="map" style="width: 100%; height: 500px; background: #b4c1cd"></div>
             </div>
         </div>
-
+        <nav class="pagination justify-content-center mt-3">{{$empresas ->appends(\Input::except('page'))->links()}}</nav>
     </div>
 
 
@@ -51,13 +36,21 @@
             var ubicaciones = [];
 
             @foreach($ubicaciones as $ubi)
-            ubicaciones.push({id:'{{$ubi -> id}}', nombre:'{{$ubi -> nombre}}', direccion: '{{$ubi -> direccion}}', telefono: '{{$ubi -> telefono}}' , lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
+            ubicaciones.push({id:'{{$ubi -> id}}', nombre:'{{$ubi -> nombre}}', lati: parseFloat('{{$ubi -> latitud}}'), long: parseFloat('{{$ubi -> longitud}}')})
             @endforeach
 
             $("#lista li").hover(function () {
                 var idHover = $(this).attr('id');
                 resaltarMarcador(idHover);
-            })
+            });
+
+            $("#lista li").click(function () {
+                window.open(
+                    'http://127.0.0.1:8000/empresa/'+$(this).attr('id'),
+                    '_blank'
+                );
+            });
+
 
         </script>
         <script src="{{asset('js/ver.js')}}"></script>
