@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Modelos\Busqueda;
-use App\Modelos\Empresa;
 use App\Modelos\Pal_ing;
 use App\Modelos\Rubro;
-use App\Modelos\Ubicacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +13,7 @@ class BusquedaController extends Controller
     public function listarPorRubro($id){
         $empresas = DB::table('empresa')
             ->where('rubro_id','=',$id)
-            ->paginate(5);
+            ->paginate(10);
 
         $rubro = Rubro::findOrFail($id);
 
@@ -30,33 +28,29 @@ class BusquedaController extends Controller
     public function buscar(Request $request){
         $elementos = $this->limpiar($request -> busqueda);
 
+        // Insertando a la tabla busqueda
         foreach ($elementos as $elemento){
             $ingresada = new Busqueda();
             $ingresada -> pal_ingresada = $elemento;
             $ingresada -> save();
         }
 
-        /*
-         SELECT pal_empresa.empresa_id, COUNT(*) as coincidencias
-        FROM pal_empresa
-        INNER JOIN busqueda ON pal_empresa.clave = busqueda.palabra
-        GROUP BY pal_empresa.empresa_id
-        ORDER BY coincidencias desc;
-         *
-         * */
+        //Consulta de la busqueda
          $empresas = DB::table('pal_empresa')
-            ->join('empresa','pal_empresa.id_empresa','empresa.id')
-            ->join('busqueda','pal_empresa.palabra','=','busqueda.pal_ingresada')
+             ->join('busqueda','pal_empresa.palabra','=','busqueda.pal_ingresada')
+             ->join('empresa','pal_empresa.id_empresa','empresa.id')
             ->select(DB::raw('empresa.id, COUNT(*) as cant, empresa.nombre, empresa.web, empresa.email, empresa.logo'))
             ->groupBy('empresa.id')
             ->orderBy('cant','desc')
             ->paginate(10);
 
-         DB::table('busqueda')->delete();
+        $ubicaciones = DB::select('SELECT empresa.id, ubicacion.nombre, ubicacion.longitud, ubicacion.latitud
+                                  FROM pal_empresa
+                                  INNER JOIN busqueda ON pal_empresa.palabra = busqueda.pal_ingresada
+                                  INNER JOIN empresa ON pal_empresa.id_empresa = empresa.id
+                                  INNER JOIN ubicacion ON ubicacion.empresa_id = empresa.id');
 
-        $ubicaciones = DB::table('ubicacion')
-            ->where('ubicacion.Empresa_id','=','18')
-            ->get();
+        DB::table('busqueda')->delete();
 
         return view('Busqueda.resultado',['empresas' => $empresas, 'busqueda' => " la busqueda: ".$request -> busqueda, 'ubicaciones' => $ubicaciones]);
 
